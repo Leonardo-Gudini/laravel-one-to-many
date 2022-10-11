@@ -15,6 +15,7 @@
                 <th scope="col">Title</th>
                 <th scope="col">Slug</th>
                 <th scope="col">Description</th>
+                <th scope="col">Category</th>
               </tr>
             </thead>
             <tbody>
@@ -23,6 +24,7 @@
                   <td>{{ $posts->title }}</td>
                   <td>{{ $posts->slug }}</td>
                   <td>{{ $posts->description }}</td>
+                  <td>{{ $posts->category->name }}</td>
                 </tr>
               </tbody>
           </table>

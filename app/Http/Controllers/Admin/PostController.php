@@ -43,7 +43,7 @@ class PostController extends Controller
             [
                 'title'=>'required|max:255',
                 'description'=>'required|max:35565',
-                'category_id'=>'nullable|exist:categories, id',
+                'category_id'=>'nullable',
             ]
             );
 
@@ -79,7 +79,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.posts.edit', compact('post'));
+        $categories = Category::all();
+        return view('admin.posts.edit', compact('post', 'categories'));
     }
 
     /**

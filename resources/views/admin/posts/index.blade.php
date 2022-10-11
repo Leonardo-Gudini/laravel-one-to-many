@@ -13,6 +13,7 @@
             <th scope="col">id</th>
             <th scope="col">Title</th>
             <th scope="col">Slug</th>
+            <th scope="col">Category</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -22,6 +23,7 @@
               <th scope="row">{{ $post->id }}</th>
               <td>{{ $post->title }}</td>
               <td>{{ $post->slug }}</td>
+              <td>{{($post->category)?$post->category->name:'-'}}</td>
               <td>
                 <a class="btn btn-primary" href="{{ route('admin.posts.show', compact('post'))}}">Details</a>
                 <a class="btn btn-warning" href="{{ route('admin.posts.edit', compact('post'))}}">Edit</a>

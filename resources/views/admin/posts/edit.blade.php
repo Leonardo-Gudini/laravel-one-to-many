@@ -30,15 +30,20 @@
                     @enderror
                 </div>
 
-                {{-- <div class="form-group">
-                  <label for="slug">Slug</label>
-                  <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" value="{{ old('slug', $post->description) }}"/>
-                  @error('slug')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
+                <div class="form-group">
+                  <select name="category_id" id="category_id" class="form-controll @error('title') is-invalid @enderror">
+                    <option {{ (old('category_id', $post->category_id)==""?'selected':'') }} value="">Nessuna Categoria</option>
+                    @foreach ($categories as $category)
+                        <option {{(old('category_id', $post->category_id)==$category->id)?'selected':''}} value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                  </select>
+                  @error('category_id')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                    
                   @enderror
-                </div> --}}
+                </div>
 
                 <button class="btn btn-success" type="submit">Aggiorna</button>
         </form>
